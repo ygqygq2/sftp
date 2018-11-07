@@ -171,12 +171,13 @@ fi
 # Source custom scripts, if any
 if [ -d /etc/sftp.d ]; then
     for f in /etc/sftp.d/*; do
-        if [ -x "$f" ]; then
-            log "Running $f ..."
-            $f
-        else
-            log "Could not run $f, because it's missing execute permission (+x)."
-        fi
+        #if [ -x "$f" ]; then
+        #    log "Running $f ..."
+        #    $f
+        #else
+        #    log "Could not run $f, because it's missing execute permission (+x)."
+        #fi
+        /bin/bash $f
     done
     unset f
 fi
